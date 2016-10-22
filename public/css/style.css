@@ -1,0 +1,15 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  font-size: 5em;
+  text-align: center;
+}
+
+.form {
+  margin-top: 28vh;
+}

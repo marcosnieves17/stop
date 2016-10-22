@@ -13,6 +13,7 @@ var socketManager = require('./lib/socketManager')({ db: db, io: io });
 app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
+app.use(express.static('public'));
 app.get('/:view', function(req, res) {
   return res.render(req.params.view || 'home');
 });
