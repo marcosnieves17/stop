@@ -11,5 +11,14 @@
 }
 
 .form {
-  margin-top: 28vh;
+  margin-top: 15vh;
+}
+
+.label {
+  padding-left: 40px;
+  padding-right: 10px;
+}
+
+.label2 {
+  padding-left: 100px;
 }
