@@ -1,0 +1,7 @@
+<script src="/socket.io/socket.io.js"></script>
+<script type='text/javascript'>
+  var socket = io('http://localhost:3000');
+  socket.emit('join', {room: 'test'}, function() {
+    console.log('joined');
+  });
+</script>
