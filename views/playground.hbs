@@ -1,7 +1,23 @@
 <script src="/socket.io/socket.io.js"></script>
 <script type='text/javascript'>
   var socket = io('http://localhost:3000');
-  socket.emit('join', {room: 'test'}, function() {
-    console.log('joined');
+  socket.emit('join', {room: 'test', name: 'cesar'}, function(status) {
+    console.log(status);
+
+    socket.on('new player', function(data) {
+      console.log(data);
+    });
+
+    //socket.emit('start', {letter: 'a'});
+    socket.on('start game', function() {
+      console.log(1);
+      socket.emit('end');
+
+      socket.on('send data', function() {
+
+        console.log(2);
+        socket.emit('submission', {player: 1, data: {stuff: 1}});
+      });
+    });
   });
 </script>
