@@ -8,7 +8,7 @@ var server = http.Server(app);
 var io = socketio(server);
 var db = {};
 
-var socketManager = require('./socketManager')({ db: db, io: io });
+var socketManager = require('./lib/socketManager')({ db: db, io: io });
 
 app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
