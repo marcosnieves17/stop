@@ -21,6 +21,10 @@
 
         console.log(2);
         socket.emit('submission', {player: 1, data: {stuff: 1}});
+
+        socket.on('results', function(data) {
+          console.log(data);
+        });
       });
     });
   });

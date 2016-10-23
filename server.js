@@ -14,7 +14,7 @@ app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 app.get('/:view', function(req, res) {
-  return res.render(req.params.view);
+  return res.render(req.params.view || 'home');
 });
 
 io.on('connection', socketManager);
