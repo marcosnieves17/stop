@@ -1,52 +1,69 @@
 const stop_score = require('../lib/stop-score');
 const expect = require('chai').expect;
-var fixtures = [
-    {
-        name: 'bob',
-        subs: {
-            'color': '',
-            'sex': ''
-        }
-        // sport: 'pinga'
-    }, {
-        name: 'yamil',
-        subs: {
-            'color': 'green',
-            'sex': 'male'
-        }
-    },
-    {
-        name: 'bob',
-        subs: {
-            'color': 'blue',
-            'sex': 'male'
-        }
-    },
-    {
-        name: 'john',
-        subs: {
-            'color': 'blue',
-            'sex': 'male'
-        }
-    },
-    {
-        name: 'bob',
-        subs: {
-            'color': 'blue',
-            'sex': 'male'
-        }
-    }
-];
-var result_fixtures = [ { name: 'bob', subs: { color: '', sex: '' }, score: 0 },
-    { name: 'yamil', subs: { color: 'green', sex: 'male' }, score: 15 },
-    { name: 'bob', subs: { color: 'blue', sex: 'male' }, score: 10 },
-    { name: 'john', subs: { color: 'blue', sex: 'male' }, score: 10 },
-    { name: 'bob', subs: { color: 'blue', sex: 'male' }, score: 10 } ];
+var fixtures = {
+    letter: "a",
+    players: [
+        {
+            name: 'Cesar',
+            subs: {
+                name: 'Ana',
+                lastname: 'Augusto',
+                country: 'Angola',
+                food: 'arroz',
+                animal: 'abeja'
+            }
+        },
+        {
+            name: 'Yamil',
+            subs: {
+                name: 'Ana',
+                lastname: 'Arroyo',
+                country: 'Alemania',
+                food: 'Ajo',
+                animal: 'abeja'
+            }
+        },
+        {
+            name: 'David',
+            subs: {
+                name: 'Alicia',
+                lastname: 'zAsusta',
+                country: 'zAustralia',
+                food: 'zAjo',
+                animal: 'zantilope'
+            }
+        },
+    ]
+};
+var result_fixtures = [ { name: 'Cesar',
+        subs:
+        { name: 'Ana',
+            lastname: 'Augusto',
+            country: 'Angola',
+            food: 'arroz',
+            animal: 'abeja' },
+        score: 40 },
+        { name: 'Yamil',
+            subs:
+            { name: 'Ana',
+                lastname: 'Arroyo',
+                country: 'Alemania',
+                food: 'Ajo',
+                animal: 'abeja' },
+            score: 40 },
+        { name: 'David',
+            subs:
+            { name: 'Alicia',
+                lastname: 'zAsusta',
+                country: 'zAustralia',
+                food: 'zAjo',
+                animal: 'zantilope' },
+            score: 10 } ];
 
 
 describe("# Game Calculator", function () {
     it("should calculate scores", function () {
-        var results = stop_score(fixtures);
+        var results = stop_score(fixtures.players, fixtures.letter);
         // console.log(results);
         expect(results).to.deep.equal(result_fixtures);
     })
